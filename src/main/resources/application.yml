@@ -1,8 +1,11 @@
 
 
+
+
 spring:
   thymeleaf:
-    cache: false  security:
+    cache: false
+  security:
     oauth2:
       client:
         registration:
@@ -10,14 +13,14 @@ spring:
             client-id: a784ba219a9b10c869c4
             client-secret: 199f87d4e2794a4b102d50e354cbf5214ee583c1
             client-name: Auth Server
-            scope: user_info
+            scope: user:email
             provider: custom-provider
-            redirect-uri: http://localhost:8080
+            redirect-uri: http://localhost:8080/login
             client-authentication-method: basic
             authorization-grant-type: authorization_code
         provider:
           custom-provider:
             token-uri: https://github.com/login/oauth/access_token
             authorization-uri: https://github.com/login/oauth/authorize
-            user-info-uri: https://github.com/auth/user/me
+            user-info-uri: https://github.com/oauth2/
             user-name-attribute: name
